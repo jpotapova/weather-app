@@ -2,7 +2,7 @@ import React from 'react';
 
 const Favourites = () => (
   <div>
-    <h1>Favourites</h1>
+    <h1 className="h1">Favourites</h1>
     <ul className="favourites">
       <li className="row">
         <div className="city__name">

@@ -1,9 +1,8 @@
 import React from 'react';
+import { City } from './City';
 
 const MyLocation = () => (
-  <div>
-    <h2>My Location</h2>
-  </div>
+  <City />
 );
 
 export { MyLocation };

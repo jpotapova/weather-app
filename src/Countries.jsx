@@ -1,20 +1,26 @@
 import React from 'react';
 
 const Countries = () => (
-  <div>
-    <h1>Page title</h1>
-    <ul>
-      <li>
+<div>
+  <h1 className="h1">Countries</h1>
+  <ul className="favourites">
+    <li className="row">
+      <div className="city__name">
         <a href="#">Lithuania</a>
-      </li>
-      <li>
+      </div>
+    </li>
+    <li className="row">
+      <div className="city__name">
         <a href="#">United Kingdom</a>
-      </li>
-      <li>
+      </div>
+    </li>
+    <li className="row">
+      <div className="city__name">
         <a href="#">France</a>
-      </li>
-    </ul>
-  </div>
+      </div>
+    </li>
+  </ul>
+</div>
 );
 
 export { Countries };

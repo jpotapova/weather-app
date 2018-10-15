@@ -1,17 +1,24 @@
 $color-base: #555;
 $color-brand: #d5d5d5;
 $font-base: 14px;
+$font-main: 18px;
 $spacing: 20px;
 $spacing-small: 10px;
+$spacing-large: 40px;
 $color-invert: #fff;
 $button-size: 40px;
 
 body {
-  margin: 0;
-  color: $color-base;
-  font-size: $font-base;
   font-family: Arial,sans-serif;
+  margin: 0;
+  font-size: $font-base;
 }
+
+body, ::before, ::after {
+  color: $color-base;
+}
+
+
 
 main {
   padding: $spacing;
@@ -29,8 +36,9 @@ ul {
 }
 
 h1 {
-  margin: 0 0 $spacing;
+  margin: 0 0 $spacing-large;
   text-align: center;
+  font-weight: normal;
 }
 
 .logo {
@@ -46,7 +54,7 @@ h1 {
 }
 
 .nav {
-  padding: $spacing 0;
+  padding: $spacing 0 0;
   display: flex;
   justify-content: space-between;
 
@@ -68,4 +76,17 @@ h1 {
 
 .search {
   display: none; //fixme
+}
+
+.row {
+  font-size: $font-main;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: $spacing;
+  padding-bottom: $spacing-small;
+  border-bottom: 1px solid $color-base;
+}
+
+.action {
+  font-size: $font-base;
 }

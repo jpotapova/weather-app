@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import './App.scss';
 import { MyLocation } from './MyLocation';
 import { Countries } from './Countries';
+import { Favourites } from './Favourites';
 
 const App = () => (
   <Router>
@@ -10,7 +11,9 @@ const App = () => (
       <header class="header">
         <Link to="/" title="My location" className="logo">Weather app</Link>
         <ul className="nav">
-          <li className="nav__button"><a href="" title="My favourite cities"><i className="fas fa-heart"></i></a></li>
+          <li className="nav__button">
+            <Link to="/favourites" title="My favourite cities"><i className="fas fa-heart"></i></Link>
+          </li>
           <li className="nav__button">
             <Link to="/" title="My location"><i className="fas fa-crosshairs"></i></Link>
           </li>
@@ -37,6 +40,7 @@ const App = () => (
       <main>
         <Route path="/" exact component={MyLocation} />
         <Route path="/countries" component={Countries}  />
+        <Route path="/favourites" component={Favourites}  />
       </main>
     </div>
   </Router>

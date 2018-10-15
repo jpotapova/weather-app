@@ -7,6 +7,8 @@ $spacing-small: 10px;
 $spacing-large: 60px;
 $color-invert: #fff;
 $button-size: 40px;
+$color-active: #aaa;
+$color-highlight: #ddd;
 
 body {
   font-family: Arial,sans-serif;
@@ -83,7 +85,41 @@ h1 {
 }
 
 .search {
-  display: none; //fixme
+
+  margin: $spacing 0 0;
+  position: relative;
+
+  .suggestions {
+
+    position: relative;
+
+    ul {
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+    }
+
+    a {
+      background: #eee;
+      padding: $spacing-small;
+      display: block;
+      font-size: $font-base;
+      border-bottom: 1px solid $color-highlight;
+
+      &:hover {
+        background: $color-highlight;
+      }
+    }
+  }
+
+  input {
+    font-size: $font-main;
+    width: 100%;
+    border: 0;
+    padding: $spacing-small;
+    box-sizing: border-box;
+  }
 }
 
 .row {

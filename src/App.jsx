@@ -24,17 +24,20 @@ const App = () => (
         </ul>
         <div className="search">
           <input type="text" placeholder="Search by city"/>
-          <ul>
-          <li>
-            <a href="#">Vilnius</a>
-          </li>
-          <li>
-            <a href="#">Kaunas</a>
-          </li>
-          <li>
-            <a href="#">Utena</a>
-          </li>
-          </ul>
+          <div className="suggestions">
+            <ul>
+              <li>
+                <a href="#">Vilnius</a>
+              </li>
+              <li>
+                <a href="#">Kaunas</a>
+              </li>
+              <li>
+                <a href="#">Utena</a>
+              </li>
+            </ul>
+          </div>
+
         </div>
       </header>
       <main>

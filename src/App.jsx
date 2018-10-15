@@ -4,7 +4,7 @@ import './App.scss';
 import { MyLocation } from './MyLocation';
 import { Countries } from './Countries';
 import { Favourites } from './Favourites';
-import { Suggestions } from './Suggestions';
+import { Search } from './Search';
 
 class App extends Component {
 
@@ -44,7 +44,7 @@ class App extends Component {
                 <button type="button" title="Search" onClick={this.toggleSearch}><i className="fas fa-search"></i></button>
               </li>
             </ul>
-            <Suggestions show={this.state.showSearch}/>
+            <Search show={this.state.showSearch}/>
           </header>
           <main>
             <Route path="/" exact component={MyLocation} />

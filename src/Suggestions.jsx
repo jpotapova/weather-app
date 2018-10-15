@@ -5,7 +5,7 @@ const Suggestions = (props) => {
     <div className="suggestions">
       <ul>
         {props.list.map((city, index) => (
-          <li>
+          <li key={index}>
             <a href="#">{city.name}</a>
           </li>
         ))}

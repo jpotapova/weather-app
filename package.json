@@ -10,8 +10,11 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "test:lint:js": "eslint --ext=js --ext=jsx .",
+    "test:lint:scss": "sass-lint -c app/config/.sass-lint.yml '**/*.scss' -v -q",
+    "test:unit": "react-scripts test",
+    "test": "npm run test:lint:js && npm run test:lint:scss"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -23,10 +26,10 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "eslint": "^5.7.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
-    "eslint-plugin-react": "^7.11.1"
+    "eslint-plugin-react": "^7.11.1",
+    "sass-lint": "^1.12.1"
   }
 }

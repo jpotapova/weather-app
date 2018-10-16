@@ -9,12 +9,14 @@ class Countries extends Component {
     super(props);
 
     this.state = {
-      countries: [
-        { Code: "LI", Name: "Liechtenstein" },
-        { Code: "LT", Name: "Lithuania" },
-        { Code: "LU", Name: "Luxembourg" }
-      ]
+      countries: []
     };
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:3001/countries')
+      .then(response => response.json())
+      .then(data => this.setState({ countries: data }));
   }
 
   render() {

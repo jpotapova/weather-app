@@ -129,6 +129,10 @@ h1 {
   margin-bottom: $spacing;
   padding-bottom: $spacing-small;
   border-bottom: 1px solid $color-base;
+
+  &:last-child {
+    border-bottom: 0;
+  }
 }
 
 .action {

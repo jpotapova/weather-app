@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Suggestions } from "./Countries";
-import { Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { Country } from './Country';
+import { CountriesList } from './CountriesList';
 
 class Countries extends Component {
   constructor(props) {
@@ -16,20 +18,7 @@ class Countries extends Component {
   }
 
   render() {
-    return (
-      <div>
-        <h1 className="h1">Countries</h1>
-        <ul className="favourites">
-          {this.state.countries.map((country, index) => (
-            <li className="row" key={index}>
-              <div>
-                <Link to={'/countries/' + country.Code}>{country.Name}</Link>
-              </div>
-            </li>
-          ))}
-        </ul>
-      </div>
-    );
+    return this.props.match.params.id ? <Country/> : <CountriesList countries={this.state.countries} />;
   }
 }
 

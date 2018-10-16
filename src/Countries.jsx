@@ -8,9 +8,15 @@ class Countries extends Component {
   constructor(props) {
     super(props);
 
+    this.countryByCode = this.countryByCode.bind(this);
+
     this.state = {
       countries: []
     };
+  }
+
+  countryByCode(code) {
+    return this.state.countries.find((c)=>c.Code === code) || {};
   }
 
   componentDidMount() {
@@ -20,12 +26,12 @@ class Countries extends Component {
   }
 
   render() {
-    let renderComponent = <CountriesList countries={this.state.countries} />;
-    if (this.props.match.params.id) {
-      let country = this.state.countries.find((c)=>c.Code === this.props.match.params.id);
-      renderComponent = <Country country={country} />;
+    let code = this.props.match.params.id;
+    if (code) {
+      return <Country country={this.countryByCode(code)} />;
+    } else {
+      return <CountriesList countries={this.state.countries} />;
     }
-    return renderComponent;
   }
 }
 

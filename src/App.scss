@@ -4,7 +4,7 @@ $font-base: 14px;
 $font-main: 18px;
 $spacing: 20px;
 $spacing-small: 10px;
-$spacing-large: 60px;
+$spacing-large: 30px;
 $color-invert: #fff;
 $button-size: 40px;
 $color-active: #aaa;
@@ -43,7 +43,7 @@ h1 {
 }
 
 .h1 {
-  margin: 0 0 $spacing-large;
+  margin: $spacing-large 0;
   text-align: center;
 
   p {

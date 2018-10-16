@@ -5,6 +5,7 @@ import { MyLocation } from './MyLocation';
 import { Countries } from './Countries';
 import { Favourites } from './Favourites';
 import { Search } from './Search';
+import { Country } from './Country';
 
 class App extends Component {
 
@@ -47,9 +48,12 @@ class App extends Component {
             <Search show={this.state.showSearch}/>
           </header>
           <main>
-            <Route path="/" exact component={MyLocation} />
-            <Route path="/countries" component={Countries}  />
-            <Route path="/favourites" component={Favourites}  />
+            <Switch>
+              <Route path="/" exact component={MyLocation} />
+              <Route path="/countries" exact component={Countries}  />
+              <Route path="/countries/:id" component={Country}  />
+              <Route path="/favourites" component={Favourites}  />
+            </Switch>
           </main>
         </div>
       </Router>

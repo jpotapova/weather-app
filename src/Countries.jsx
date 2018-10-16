@@ -18,7 +18,12 @@ class Countries extends Component {
   }
 
   render() {
-    return this.props.match.params.id ? <Country/> : <CountriesList countries={this.state.countries} />;
+    let renderComponent = <CountriesList countries={this.state.countries} />;
+    if (this.props.match.params.id) {
+      let country = this.state.countries.find((c)=>c.Code === this.props.match.params.id);
+      renderComponent = <Country country={country} />;
+    }
+    return renderComponent;
   }
 }
 

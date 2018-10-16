@@ -3,5 +3,18 @@
   "env": {
     "browser": true,
     "jest": true
+  },
+  "rules": {
+      "quotes": ["error", "double"],
+      "import/prefer-default-export": "off",
+      "padded-blocks": ["error", "always"],
+      "comma-dangle": ["error", "never"],
+      "prefer-destructuring": ["error", {"object": false, "array": false}],
+      "react/destructuring-assignment": ["error", "never"],
+      "prefer-template": "off",
+      "arrow-parens": "off",
+      "object-curly-newline": "off",
+      "react/prefer-stateless-function": "off",
+      "react/self-closing-comp": "off"
   }
 }

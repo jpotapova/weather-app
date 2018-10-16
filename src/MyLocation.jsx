@@ -1,8 +1,8 @@
-import React from 'react';
-import { City } from './City';
+import React from "react";
+import { City } from "./City";
 
 const MyLocation = () => (
-  <City myLocation="true"/>
+  <City myLocation="true" />
 );
 
 export { MyLocation };

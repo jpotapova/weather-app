@@ -100,16 +100,16 @@ h1 {
       right: 0;
     }
 
-    a {
+    a, span {
       background: #eee;
       padding: $spacing-small;
       display: block;
       font-size: $font-base;
-      border-bottom: 1px solid $color-highlight;
+      border-bottom: 1px solid $color-highlight;    
+    }
 
-      &:hover {
-        background: $color-highlight;
-      }
+    a:hover {
+      background: $color-highlight;
     }
   }
 

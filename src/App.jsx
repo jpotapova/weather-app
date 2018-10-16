@@ -5,6 +5,7 @@ import { MyLocation } from './MyLocation';
 import { Countries } from './Countries';
 import { Favourites } from './Favourites';
 import { Search } from './Search';
+import { City } from './City';
 
 class App extends Component {
 
@@ -52,6 +53,7 @@ class App extends Component {
               <Route path="/countries" exact component={Countries}  />
               <Route path="/countries/:id" component={Countries}  />
               <Route path="/favourites" component={Favourites}  />
+              <Route path="/city/:id" component={City}  />
             </Switch>
           </main>
         </div>

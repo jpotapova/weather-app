@@ -13,7 +13,7 @@ class CitiesList extends Component {
         {this.props.cities.map((city, index) => (
           <li className="row" key={index}>
             <div className="city__name">
-              <a href="#">{city.name}</a>
+              <Link to={"/city/" + city.id} title={city.name}>{city.name}</Link>
             </div>
             <div className="actions">
               +15

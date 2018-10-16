@@ -10,7 +10,11 @@ class Favourites extends Component {
   }
 
   componentDidMount() {
-    // get data here
+
+    let favs = JSON.parse(localStorage.getItem("favourites"));
+    if (favs) {
+      this.setState({cities: favs});
+    }
     fetch("http://localhost:3001/cities?country=LT")
       .then(response => response.json())
       .then(data => this.setState({ cities: data }));

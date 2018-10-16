@@ -52,7 +52,7 @@ class Search extends Component {
           <h1>Search</h1>
           <div>
             <input type="text" value={this.state.term} onChange={this.updateTerm}/>
-            <button className="search__button" type="button" onClick={this.submitSearch}>Update results</button>
+            <button className="button" type="button" onClick={this.submitSearch}>Update results</button>
           </div>
         </div>
         {this.state.msg && <p>{this.state.msg}</p>}

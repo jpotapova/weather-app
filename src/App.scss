@@ -98,16 +98,16 @@ h1 {
     box-sizing: border-box;
     margin-top: $spacing;
   }
+}
 
-  &__button {
-    font-size: $font-main;
-    width: 100%;
-    border: 1px solid $color-base;
-    padding: $spacing-small;
-    box-sizing: border-box;
-    margin-top: $spacing;
-    background: $color-brand;
-  }
+.button {
+  font-size: $font-main;
+  width: 100%;
+  border: 1px solid $color-base;
+  padding: $spacing-small;
+  box-sizing: border-box;
+  margin-top: $spacing-large;
+  background: $color-brand;
 }
 
 .row {

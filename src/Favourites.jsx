@@ -7,17 +7,24 @@ class Favourites extends Component {
     this.state = {
       cities: []
     }
+    this.removeFav = this.removeFav.bind(this);
   }
 
   componentDidMount() {
 
-    let favs = JSON.parse(localStorage.getItem("favourites"));
+    let favs = JSON.parse(localStorage.getItem("favs")) || [];
     if (favs) {
       this.setState({cities: favs});
     }
-    fetch("http://localhost:3001/cities?country=LT")
-      .then(response => response.json())
-      .then(data => this.setState({ cities: data }));
+
+  }
+
+  removeFav(id) {
+    let newFavs = this.state.cities.filter((f)=>f.id !== id);
+    this.setState({
+      cities: newFavs
+    });
+    localStorage.setItem("favs", JSON.stringify(newFavs));
   }
 
   render() {
@@ -26,7 +33,8 @@ class Favourites extends Component {
         <div className="h1">
           <h1>Favourites</h1>
         </div>
-        <ItemsList items={this.state.cities} link="/city/" actions="delete"/>
+        {!this.state.cities.length && <p className="msg">No favourites yet</p>}
+        <ItemsList removeFav={this.removeFav} items={this.state.cities} link="/city/" actions="delete"/>
       </div>
     );
   }

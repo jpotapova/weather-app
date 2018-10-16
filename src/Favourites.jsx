@@ -1,35 +1,31 @@
-import React from 'react';
+import React, {Component} from 'react';
+import { ItemsList } from './ItemsList';
 
-const Favourites = () => (
-  <div>
-    <h1 className="h1">Favourites</h1>
-    <ul className="favourites">
-      <li className="row">
-        <div className="city__name">
-          <a href="#">Vilnius</a>
+class Favourites extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      cities: []
+    }
+  }
+
+  componentDidMount() {
+    // get data here
+    fetch("http://localhost:3001/cities?country=LT")
+      .then(response => response.json())
+      .then(data => this.setState({ cities: data }));
+  }
+
+  render() {
+    return (
+      <div>
+        <div className="h1">
+          <h1>Favourites</h1>
         </div>
-        <div className="actions">
-          <button type="button" className="action"><i className="fas fa-trash"></i></button>
-        </div>
-      </li>
-      <li className="row">
-        <div className="city__name">
-          <a href="#">Kaunas</a>
-        </div>
-        <div className="actions">
-          <button type="button" className="action"><i className="fas fa-trash"></i></button>
-        </div>
-      </li>
-      <li className="row">
-        <div className="city__name">
-          <a href="#">Utena</a>
-        </div>
-        <div className="actions">
-          <button type="button" className="action"><i className="fas fa-trash"></i></button>
-        </div>
-      </li>
-    </ul>
-  </div>
-);
+        <ItemsList items={this.state.cities} link="/city/" actions="delete"/>
+      </div>
+    );
+  }
+}
 
 export { Favourites };

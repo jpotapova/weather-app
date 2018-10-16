@@ -1,5 +1,5 @@
 import React , {Component} from 'react';
-import { CitiesList } from './CitiesList';
+import { ItemsList } from './ItemsList';
 
 class Search extends Component {
 
@@ -56,7 +56,7 @@ class Search extends Component {
           </div>
         </div>
         {this.state.msg && <p>{this.state.msg}</p>}
-        <CitiesList cities={this.state.cities}/>
+        <ItemsList items={this.state.cities} link="/city/"/>
       </div>
     )
   }

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { CitiesList } from './CitiesList';
+import { ItemsList } from './ItemsList';
 
 class Country extends Component {
   constructor(props) {
@@ -19,9 +19,9 @@ class Country extends Component {
     return (
       <div>
         <div className="h1">
-          <h1>{this.props.country.Name}</h1>
+          <h1>{this.props.country.Name} {this.props.country.Code}</h1>
         </div>
-        <CitiesList cities={this.state.cities}/>
+        <ItemsList items={this.state.cities} link="/city/" actions="weather"/>
       </div>
     );
   }

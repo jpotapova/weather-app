@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import { Country } from './Country';
-import { CountriesList } from './CountriesList';
+import { ItemsList } from './ItemsList';
 
 class Countries extends Component {
   constructor(props) {
@@ -29,7 +29,14 @@ class Countries extends Component {
     if (code) {
       return <Country country={this.countryByCode(code)} />;
     } else {
-      return <CountriesList countries={this.state.countries} />;
+      return (
+        <div>
+          <div className="h1">
+            <h1>Countries</h1>
+          </div>
+          <ItemsList items={this.state.countries} link="/countries/"/>
+        </div>
+      );
     }
   }
 }

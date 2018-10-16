@@ -45,7 +45,7 @@ class City extends Component {
     let newFavs;
     if (this.isFav()) {
       // remove from favourites
-      newFavs = this.state.favs.filter((f)=>f.id+'' !== this.id); 
+      newFavs = this.state.favs.filter((f)=>f.id+'' !== this.id);
     } else {
       // add to favourites
       newFavs = this.state.favs.concat([this.state.city])
@@ -75,17 +75,17 @@ class City extends Component {
     return (
       <div>
         <div className="h1">
-          <h1>{this.state.city.name}</h1>
-          {this.props.myLocation  && <p>(your current location)</p>}
+          <h1>{this.state.city.name || 'My location'}</h1>
         </div>
         <div className="weather">
           <p className="datetime">{this.formatDate(new Date())}</p>
           <p className="temperature">+15</p>
           <p className="description">Clear</p>
-          <button className="button" type="button" onClick={this.toggleFav}>
-            {this.isFav() ? 'Remove from favourites' : 'Add to favourites'}
-          </button>
-
+          {!this.props.myLocation && (
+            <button className="button" type="button" onClick={this.toggleFav}>
+              {this.isFav() ? 'Remove from favourites' : 'Add to favourites'}
+            </button>
+          )}
         </div>
       </div>
     );

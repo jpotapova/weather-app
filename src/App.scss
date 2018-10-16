@@ -16,6 +16,10 @@ body {
   font-size: $font-base;
 }
 
+p {
+  font-size: $font-main;
+}
+
 body, ::before, ::after {
   color: $color-base;
 }
@@ -86,39 +90,23 @@ h1 {
 
 .search {
 
-  margin: $spacing 0 0;
-  position: relative;
-
-  .suggestions {
-
-    position: relative;
-
-    ul {
-      position: absolute;
-      left: 0;
-      top: 0;
-      right: 0;
-    }
-
-    a, span {
-      background: #eee;
-      padding: $spacing-small;
-      display: block;
-      font-size: $font-base;
-      border-bottom: 1px solid $color-highlight;    
-    }
-
-    a:hover {
-      background: $color-highlight;
-    }
-  }
-
   input {
     font-size: $font-main;
     width: 100%;
-    border: 0;
+    border: 1px solid $color-base;
     padding: $spacing-small;
     box-sizing: border-box;
+    margin-top: $spacing;
+  }
+
+  &__button {
+    font-size: $font-main;
+    width: 100%;
+    border: 1px solid $color-base;
+    padding: $spacing-small;
+    box-sizing: border-box;
+    margin-top: $spacing;
+    background: $color-brand;
   }
 }
 

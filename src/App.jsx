@@ -11,18 +11,6 @@ class App extends Component {
 
   constructor(props) {
     super(props);
-    this.toggleSearch = this.toggleSearch.bind(this);
-
-    this.state = {
-      showSearch: false
-    };
-
-  }
-
-  toggleSearch(e) {
-    this.setState({
-      showSearch: !this.state.showSearch
-    });
   }
 
   render() {
@@ -42,10 +30,9 @@ class App extends Component {
                 <Link to="/countries" title="Countries"><i className="fas fa-globe-africa"></i></Link>
               </li>
               <li className="nav__button">
-                <button type="button" title="Search" onClick={this.toggleSearch}><i className="fas fa-search"></i></button>
+                <Link to="/search" title="Search"><i className="fas fa-search"></i></Link>
               </li>
             </ul>
-            <Search show={this.state.showSearch}/>
           </header>
           <main>
             <Switch>
@@ -54,6 +41,7 @@ class App extends Component {
               <Route path="/countries/:id" component={Countries}  />
               <Route path="/favourites" component={Favourites}  />
               <Route path="/city/:id" component={City}  />
+              <Route path="/search" component={Search}  />
             </Switch>
           </main>
         </div>

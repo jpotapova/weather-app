@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Suggestions } from "./Countries";
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import { Country } from './Country';
 import { CountriesList } from './CountriesList';

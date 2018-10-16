@@ -2,7 +2,7 @@ import React from 'react';
 import { City } from './City';
 
 const MyLocation = () => (
-  <City />
+  <City myLocation="true"/>
 );
 
 export { MyLocation };

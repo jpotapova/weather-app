@@ -26,7 +26,6 @@ class City extends Component {
     }
 
     const d = date.getDate(),
-          monthIndex = date.getMonth(),
           y = date.getFullYear(),
           h = date.getHours(),
           m = getMonth(date),

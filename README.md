@@ -7,6 +7,7 @@ To run a local development environment:
 1. clone the repository to your machine
 2. cd into project root directly
 3. run `npm install`
+4. run `npm install -g json-server`
 4. run `npm run db` - this will start a simple json with fake REST API (which is necessary to manage a massive list of cities)
 5. open new tab/window in terminal/console and make sure you are in the project root directory
 6. run `npm start`

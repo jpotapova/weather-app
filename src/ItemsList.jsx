@@ -32,7 +32,7 @@ class ItemsList extends Component {
                 <button type="button" className="action" onClick={this.removeFav(item.id)}><i className="fas fa-trash"></i></button>
               </div>
             )}
-            {this.props.actions === "weather" && <div className="actions">+15</div>}
+            {this.props.actions === "weather" && <div className="actions">{item.temp}</div>}
           </li>
         ))}
       </ul>

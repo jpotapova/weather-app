@@ -34,7 +34,13 @@ class Country extends Component {
         // FIXME - do the real fetch
         // return fetch(byIDs)
         //     .then(response => response.json())
-        //     .then(weatherData => console.log(weatherData));;
+        //     .then(weatherData => {
+        //       let cities = data.map((c, index) => {
+        //         c.temp = weatherData.list[index].main.temp;
+        //         return c;
+        //       });
+        //       return this.setState({cities: cities});
+        //     });
       });
 
   }

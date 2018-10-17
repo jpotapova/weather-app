@@ -22,7 +22,7 @@ class City extends Component {
 
   componentDidMount() {
 
-    let geoMsg = this.props.myLocation ? "Attempting to retrieve your location..." : "";
+    const geoMsg = this.props.myLocation ? "Attempting to retrieve your location..." : "";
 
     this.id = this.props.match ? this.props.match.params.id : 0;
     if (this.id) {

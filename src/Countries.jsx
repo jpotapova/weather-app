@@ -33,7 +33,7 @@ class Countries extends Component {
     const code = this.props.match.params.id;
     if (code) {
 
-      return <Country country={this.countryByCode(code)} code={code}/>;
+      return <Country country={this.countryByCode(code)} code={code} />;
 
     }
 

@@ -23,6 +23,8 @@
       "react/jsx-one-expression-per-line": "off",
       "react/no-access-state-in-setstate": "off",
       "max-len": "off",
-      "no-param-reassign": "off"
+      "no-param-reassign": "off",
+      "object-shorthand": "off",
+      "react/no-string-refs": "off"
   }
 }

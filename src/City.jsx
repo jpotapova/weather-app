@@ -8,7 +8,8 @@ class City extends Component {
     this.state = {
       city: {},
       favs: [],
-      weather: null
+      weather: null,
+      geo: null
     };
     this.isFav = this.isFav.bind(this);
     this.toggleFav = this.toggleFav.bind(this);
@@ -26,13 +27,41 @@ class City extends Component {
         .then(response => response.json())
         .then(data => this.setState({ city: data[0] }));
 
-      const requestString = "http://api.openweathermap.org/data/2.5/weather?id="
+      const byID = "http://api.openweathermap.org/data/2.5/weather?id="
                             + this.id
                             + "&APPID=62b8cfcff3ecb643b618d34c4d24a283&units=metric";
 
-      fetch(requestString)
+      fetch(byID)
         .then(response => response.json())
         .then(data => this.setState({ weather: data }));
+
+    } else {
+
+      navigator.geolocation.getCurrentPosition(
+        position => {
+
+          this.setState({
+            "geo": {
+              "lat": position.coords.latitude,
+              "lng": position.coords.longitude
+            }
+          });
+
+          const byGeo = "http://api.openweathermap.org/data/2.5/weather?lat="
+                                + position.coords.latitude
+                                + "&lon=" + position.coords.longitude
+                                + "&APPID=62b8cfcff3ecb643b618d34c4d24a283&units=metric";
+
+          fetch(byGeo)
+            .then(response => response.json())
+            .then(data => this.setState({ weather: data }));
+
+        },
+        error => { },
+        {
+          maximumAge: Infinity
+        }
+      );
 
     }
 
@@ -117,6 +146,7 @@ class City extends Component {
         </div>
         <div className="weather">
           <p className="datetime">{this.formatDate(new Date())}</p>
+          {!this.state.geo && <p>Attempting to retrieve your location...</p>}
           {this.state.weather && <p className="temperature">{this.formatTemp(this.state.weather.main.temp)}</p>}
           {this.state.weather && <p className="description">{this.state.weather.weather[0].main}</p>}
           {!this.props.myLocation && (

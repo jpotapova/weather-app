@@ -9,7 +9,7 @@ class City extends Component {
       city: {},
       favs: [],
       weather: null,
-      geo: null
+      geoMsg: "Attempting to retrieve your location..."
     };
     this.isFav = this.isFav.bind(this);
     this.toggleFav = this.toggleFav.bind(this);
@@ -41,10 +41,7 @@ class City extends Component {
         position => {
 
           this.setState({
-            "geo": {
-              "lat": position.coords.latitude,
-              "lng": position.coords.longitude
-            }
+            geoMsg: null
           });
 
           const byGeo = "http://api.openweathermap.org/data/2.5/weather?lat="
@@ -57,7 +54,13 @@ class City extends Component {
             .then(data => this.setState({ weather: data }));
 
         },
-        error => { },
+        () => {
+
+          this.setState({
+            geoMsg: "Sorry, not possible to retrieve your location"
+          });
+
+        },
         {
           maximumAge: Infinity
         }
@@ -146,7 +149,7 @@ class City extends Component {
         </div>
         <div className="weather">
           <p className="datetime">{this.formatDate(new Date())}</p>
-          {!this.state.geo && <p>Attempting to retrieve your location...</p>}
+          {this.state.geoMsg && <p>{this.state.geoMsg}</p>}
           {this.state.weather && <p className="temperature">{this.formatTemp(this.state.weather.main.temp)}</p>}
           {this.state.weather && <p className="description">{this.state.weather.weather[0].main}</p>}
           {!this.props.myLocation && (

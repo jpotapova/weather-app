@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { formatTemp } from "./helpers";
-import { formatURI } from "./helpers";
+import { formatTemp, formatURI } from "./helpers";
 import "whatwg-fetch";
 
 class City extends Component {

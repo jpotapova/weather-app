@@ -17,7 +17,7 @@ function formatTemp(temp) {
 
 function formatURI(str) {
 
-  return window.location.protocol + '//'+ window.location.hostname + str;
+  return window.location.protocol + "//" + window.location.hostname + str;
 
 }
 

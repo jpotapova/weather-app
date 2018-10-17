@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { formatTemp } from "./helpers";
 
 class City extends Component {
 
@@ -13,7 +14,6 @@ class City extends Component {
     };
     this.isFav = this.isFav.bind(this);
     this.toggleFav = this.toggleFav.bind(this);
-    this.formatTemp = this.formatTemp.bind(this);
     this.getCityInfo = this.getCityInfo.bind(this);
     this.getLocationInfo = this.getLocationInfo.bind(this);
     this.id = "";
@@ -91,17 +91,6 @@ class City extends Component {
 
   }
 
-  formatTemp(temp) {
-
-    if (temp > 0) {
-
-      temp = "+" + temp;
-
-    }
-    return temp + " C";
-
-  }
-
   formatDate(date) {
 
     function getMonth() {
@@ -167,7 +156,7 @@ class City extends Component {
         <div className="weather">
           <p className="datetime">{this.formatDate(new Date())}</p>
           {this.state.geoMsg && <p>{this.state.geoMsg}</p>}
-          {this.state.weather && this.state.weather.main && <p className="temperature">{this.formatTemp(this.state.weather.main.temp)}</p>}
+          {this.state.weather && this.state.weather.main && <p className="temperature">{formatTemp(this.state.weather.main.temp)}</p>}
           {this.state.weather && <p className="description">{this.state.weather.weather[0].main}</p>}
           {!this.props.myLocation && (
             <button className="button" type="button" onClick={this.toggleFav}>

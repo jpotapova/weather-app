@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { formatTemp } from "./helpers";
 
 
 class ItemsList extends Component {
@@ -32,7 +33,7 @@ class ItemsList extends Component {
                 <button type="button" className="action" onClick={this.removeFav(item.id)}><i className="fas fa-trash"></i></button>
               </div>
             )}
-            {this.props.actions === "weather" && <div className="actions">{item.temp}</div>}
+            {this.props.actions === "weather" && <div className="actions">{formatTemp(item.temp)}</div>}
           </li>
         ))}
       </ul>

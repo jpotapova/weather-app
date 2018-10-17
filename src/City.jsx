@@ -27,12 +27,13 @@ class City extends Component {
         .then(data => this.setState({ city: data[0] }));
 
       const requestString = "http://api.openweathermap.org/data/2.5/weather?id="
-                            +this.id
-                            +"&APPID=62b8cfcff3ecb643b618d34c4d24a283&units=metric";
+                            + this.id
+                            + "&APPID=62b8cfcff3ecb643b618d34c4d24a283&units=metric";
 
       fetch(requestString)
         .then(response => response.json())
         .then(data => this.setState({ weather: data }));
+
     }
 
     this.setState({
@@ -42,8 +43,14 @@ class City extends Component {
   }
 
   formatTemp(temp) {
-    if (temp > 0) { temp = '+' + temp}
-    return temp + ' C';
+
+    if (temp > 0) {
+
+      temp = "+" + temp;
+
+    }
+    return temp + " C";
+
   }
 
   formatDate(date) {

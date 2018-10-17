@@ -35,7 +35,7 @@ class Map extends Component {
       map: map,
       label: formatTemp(temp),
       icon: {
-        path: 'M -2,-2 2,-2 2,2 -2,2 z', // 'M -2,0 0,-2 2,0 0,2 z',
+        path: 'M -2,-2 2,-2 2,2 -2,2 z',
         strokeColor: '#fff',
         fillColor: '#fff',
         fillOpacity: 1,

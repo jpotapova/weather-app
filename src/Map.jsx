@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { formatTemp } from "./helpers";
 
 class Map extends Component {
 
@@ -27,12 +28,12 @@ class Map extends Component {
 
   }
 
-  generateMarker(map, index, position) {
+  generateMarker(map, index, position, temp) {
 
     return new window.google.maps.Marker({
       position: position,
       map: map,
-      label: "+15C",
+      label: formatTemp(temp),
       icon: {
         path: 'M -2,-2 2,-2 2,2 -2,2 z', // 'M -2,0 0,-2 2,0 0,2 z',
         strokeColor: '#fff',
@@ -47,7 +48,7 @@ class Map extends Component {
   addMarker(markers, bounds, item) {
 
     const position = { lat: item.coord.lat, lng: item.coord.lon };
-    const m = this.generateMarker(this.map, item.id, position);
+    const m = this.generateMarker(this.map, item.id, position, item.temp);
     m.metadata = { id: item.id };
     markers.push(m);
 

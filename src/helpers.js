@@ -4,11 +4,11 @@ function formatTemp(temp) {
 
     if (temp > 0) {
 
-      temp = "+" + temp;
+      temp = "+" + Math.round(temp);
 
     }
     return temp + " C";
-    
+
   }
 
   return "";

@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { ItemsList } from "./ItemsList";
+import { formatURI } from "./helpers";
+import "whatwg-fetch";
 
 class Search extends Component {
 
@@ -37,7 +39,7 @@ class Search extends Component {
 
     } else {
 
-      fetch("http://localhost:3001/cities?name_like=" + term + "&_limit=10")
+      window.fetch(formatURI(":3001/cities?name_like=" + term + "&_limit=10"))
         .then(response => response.json())
         .then(data => {
 

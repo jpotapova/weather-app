@@ -15,4 +15,10 @@ function formatTemp(temp) {
 
 }
 
-export { formatTemp };
+function formatURI(str) {
+
+  return window.location.protocol + '//'+ window.location.hostname + str;
+
+}
+
+export { formatTemp, formatURI };

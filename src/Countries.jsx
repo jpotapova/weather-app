@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Country } from "./Country";
 import { ItemsList } from "./ItemsList";
+import { formatURI } from "./helpers";
+import "whatwg-fetch";
 
 class Countries extends Component {
 
@@ -16,7 +18,7 @@ class Countries extends Component {
 
   componentDidMount() {
 
-    fetch("http://localhost:3001/countries")
+    window.fetch(formatURI(":3001/countries"))
       .then(response => response.json())
       .then(data => this.setState({ countries: data }));
 

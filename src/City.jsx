@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { formatTemp } from "./helpers";
+import { formatURI } from "./helpers";
+import "whatwg-fetch";
 
 class City extends Component {
 
@@ -44,7 +46,7 @@ class City extends Component {
 
   getCityInfo(id) {
 
-    fetch("http://localhost:3001/cities?id=" + id)
+    window.fetch(formatURI(":3001/cities?id=" + id))
       .then(response => response.json())
       .then(data => this.setState({ city: data[0] }));
 
@@ -52,7 +54,7 @@ class City extends Component {
                           + id
                           + "&APPID=62b8cfcff3ecb643b618d34c4d24a283&units=metric";
 
-    fetch(byID)
+    window.fetch(byID)
       .then(response => response.json())
       .then(data => this.setState({ weather: data }));
 
@@ -72,7 +74,7 @@ class City extends Component {
                               + "&lon=" + position.coords.longitude
                               + "&APPID=62b8cfcff3ecb643b618d34c4d24a283&units=metric";
 
-        fetch(byGeo)
+        window.fetch(byGeo)
           .then(response => response.json())
           .then(data => this.setState({ weather: data }));
 

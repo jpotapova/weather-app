@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { ItemsList } from "./ItemsList";
 import { Map } from "./Map";
+import { formatURI } from "./helpers";
+import "whatwg-fetch";
 
 class Country extends Component {
 
@@ -15,7 +17,7 @@ class Country extends Component {
 
   componentDidMount() {
 
-    fetch("http://localhost:3001/cities?country=" + this.props.code + "&_limit=2")
+    window.fetch(formatURI(":3001/cities?country=" + this.props.code + "&_limit=2"))
       .then(response => response.json())
       .then(data => {
 
@@ -30,7 +32,7 @@ class Country extends Component {
                                 + ids.join(",")
                                 + "&APPID=62b8cfcff3ecb643b618d34c4d24a283&units=metric";
 
-        return fetch(byIDs)
+        return window.fetch(byIDs)
             .then(response => response.json())
             .then(weatherData => {
 

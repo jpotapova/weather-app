@@ -33,7 +33,7 @@ class App extends Component {
               </ul>
             </div>
           </header>
-          <main>
+          <div className="main">
             <div className="container">
               <Switch>
                 <Route path="/" exact component={MyLocation} />
@@ -44,7 +44,7 @@ class App extends Component {
                 <Route path="/search" component={Search} />
               </Switch>
             </div>
-          </main>
+          </div>
         </div>
       </Router>
     );

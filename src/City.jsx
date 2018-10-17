@@ -7,10 +7,12 @@ class City extends Component {
     super(props);
     this.state = {
       city: {},
-      favs: []
+      favs: [],
+      weather: null
     };
     this.isFav = this.isFav.bind(this);
     this.toggleFav = this.toggleFav.bind(this);
+    this.formatTemp = this.formatTemp.bind(this);
     this.id = "";
 
   }
@@ -24,12 +26,24 @@ class City extends Component {
         .then(response => response.json())
         .then(data => this.setState({ city: data[0] }));
 
+      const requestString = "http://api.openweathermap.org/data/2.5/weather?id="
+                            +this.id
+                            +"&APPID=62b8cfcff3ecb643b618d34c4d24a283&units=metric";
+
+      fetch(requestString)
+        .then(response => response.json())
+        .then(data => this.setState({ weather: data }));
     }
 
     this.setState({
       favs: JSON.parse(localStorage.getItem("favs")) || []
     });
 
+  }
+
+  formatTemp(temp) {
+    if (temp > 0) { temp = '+' + temp}
+    return temp + ' C';
   }
 
   formatDate(date) {
@@ -96,8 +110,8 @@ class City extends Component {
         </div>
         <div className="weather">
           <p className="datetime">{this.formatDate(new Date())}</p>
-          <p className="temperature">+15</p>
-          <p className="description">Clear</p>
+          {this.state.weather && <p className="temperature">{this.formatTemp(this.state.weather.main.temp)}</p>}
+          {this.state.weather && <p className="description">{this.state.weather.weather[0].main}</p>}
           {!this.props.myLocation && (
             <button className="button" type="button" onClick={this.toggleFav}>
               {this.isFav() ? "Remove from favourites" : "Add to favourites"}

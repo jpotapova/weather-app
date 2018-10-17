@@ -14,7 +14,7 @@ class Country extends Component {
 
   componentDidMount() {
 
-    fetch("http://localhost:3001/cities?country=" + this.props.country.Code)
+    fetch("http://localhost:3001/cities?country=" + this.props.country.Code + "&_limit=20")
       .then(response => response.json())
       .then(data => this.setState({ cities: data }));
 

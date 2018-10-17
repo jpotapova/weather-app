@@ -9,7 +9,7 @@ class City extends Component {
       city: {},
       favs: [],
       weather: null,
-      geoMsg: "Attempting to retrieve your location..."
+      geoMsg: ""
     };
     this.isFav = this.isFav.bind(this);
     this.toggleFav = this.toggleFav.bind(this);
@@ -21,6 +21,8 @@ class City extends Component {
   }
 
   componentDidMount() {
+
+    let geoMsg = this.props.myLocation ? "Attempting to retrieve your location..." : "";
 
     this.id = this.props.match ? this.props.match.params.id : 0;
     if (this.id) {
@@ -34,7 +36,8 @@ class City extends Component {
     }
 
     this.setState({
-      favs: JSON.parse(localStorage.getItem("favs")) || []
+      favs: JSON.parse(localStorage.getItem("favs")) || [],
+      geoMsg: geoMsg
     });
 
   }
@@ -164,7 +167,7 @@ class City extends Component {
         <div className="weather">
           <p className="datetime">{this.formatDate(new Date())}</p>
           {this.state.geoMsg && <p>{this.state.geoMsg}</p>}
-          {this.state.weather && <p className="temperature">{this.formatTemp(this.state.weather.main.temp)}</p>}
+          {this.state.weather && this.state.weather.main && <p className="temperature">{this.formatTemp(this.state.weather.main.temp)}</p>}
           {this.state.weather && <p className="description">{this.state.weather.weather[0].main}</p>}
           {!this.props.myLocation && (
             <button className="button" type="button" onClick={this.toggleFav}>

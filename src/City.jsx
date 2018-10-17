@@ -14,6 +14,8 @@ class City extends Component {
     this.isFav = this.isFav.bind(this);
     this.toggleFav = this.toggleFav.bind(this);
     this.formatTemp = this.formatTemp.bind(this);
+    this.getCityInfo = this.getCityInfo.bind(this);
+    this.getLocationInfo = this.getLocationInfo.bind(this);
     this.id = "";
 
   }
@@ -23,54 +25,66 @@ class City extends Component {
     this.id = this.props.match ? this.props.match.params.id : 0;
     if (this.id) {
 
-      fetch("http://localhost:3001/cities?id=" + this.id)
-        .then(response => response.json())
-        .then(data => this.setState({ city: data[0] }));
-
-      const byID = "http://api.openweathermap.org/data/2.5/weather?id="
-                            + this.id
-                            + "&APPID=62b8cfcff3ecb643b618d34c4d24a283&units=metric";
-
-      fetch(byID)
-        .then(response => response.json())
-        .then(data => this.setState({ weather: data }));
+      this.getCityInfo(this.id);
 
     } else {
 
-      navigator.geolocation.getCurrentPosition(
-        position => {
-
-          this.setState({
-            geoMsg: null
-          });
-
-          const byGeo = "http://api.openweathermap.org/data/2.5/weather?lat="
-                                + position.coords.latitude
-                                + "&lon=" + position.coords.longitude
-                                + "&APPID=62b8cfcff3ecb643b618d34c4d24a283&units=metric";
-
-          fetch(byGeo)
-            .then(response => response.json())
-            .then(data => this.setState({ weather: data }));
-
-        },
-        () => {
-
-          this.setState({
-            geoMsg: "Sorry, not possible to retrieve your location"
-          });
-
-        },
-        {
-          maximumAge: Infinity
-        }
-      );
+      this.getLocationInfo();
 
     }
 
     this.setState({
       favs: JSON.parse(localStorage.getItem("favs")) || []
     });
+
+  }
+
+  getCityInfo(id) {
+
+    fetch("http://localhost:3001/cities?id=" + id)
+      .then(response => response.json())
+      .then(data => this.setState({ city: data[0] }));
+
+    const byID = "http://api.openweathermap.org/data/2.5/weather?id="
+                          + id
+                          + "&APPID=62b8cfcff3ecb643b618d34c4d24a283&units=metric";
+
+    fetch(byID)
+      .then(response => response.json())
+      .then(data => this.setState({ weather: data }));
+
+  }
+
+  getLocationInfo() {
+
+    navigator.geolocation.getCurrentPosition(
+      position => {
+
+        this.setState({
+          geoMsg: null
+        });
+
+        const byGeo = "http://api.openweathermap.org/data/2.5/weather?lat="
+                              + position.coords.latitude
+                              + "&lon=" + position.coords.longitude
+                              + "&APPID=62b8cfcff3ecb643b618d34c4d24a283&units=metric";
+
+        fetch(byGeo)
+          .then(response => response.json())
+          .then(data => this.setState({ weather: data }));
+
+      },
+      () => {
+
+        this.setState({
+          geoMsg: "Sorry, not possible to retrieve your location"
+        });
+
+      },
+      {
+        maximumAge: Infinity
+      }
+    );
 
   }
 

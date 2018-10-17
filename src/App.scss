@@ -9,6 +9,7 @@ $color-invert: #fff;
 $button-size: 40px;
 $color-active: #aaa;
 $color-highlight: #ddd;
+$search-width: 300px;
 
 body {
   font-family: Arial, sans-serif;
@@ -44,6 +45,11 @@ ul {
 h1 {
   font-weight: normal;
   margin: 0;
+}
+
+button {
+  border: 0;
+  background: transparent;
 }
 
 .h1 {
@@ -101,12 +107,19 @@ h1 {
   }
 }
 
+.search-form {
+  max-width: $search-width;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .button {
   background: $color-brand;
   border: 1px solid $color-base;
   box-sizing: border-box;
   font-size: $font-main;
   margin-top: $spacing-large;
+  max-width: $search-width;
   padding: $spacing-small;
   width: 100%;
 
@@ -151,4 +164,42 @@ h1 {
 
 .msg {
   text-align: center;
+}
+
+@media (min-width: 500px) {
+
+  .header .container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .nav {
+    padding-top: 0;
+  }
+
+  .nav-button {
+    margin: 0 $spacing;
+  }
+
+}
+
+@media (min-width: 700px) {
+  .search-form {
+    display: flex;
+    max-width: none;
+
+    input, button {
+      margin-top: $spacing;
+    }
+  }
+}
+
+@media (min-width: 1000px) {
+
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 960px;
+  }
+
 }

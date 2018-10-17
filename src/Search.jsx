@@ -66,7 +66,7 @@ class Search extends Component {
       <div className="search">
         <div className="h1">
           <h1>Search</h1>
-          <div>
+          <div className="search-form">
             <input type="text" value={this.state.term} onChange={this.updateTerm} />
             <button className="button" type="button" onClick={this.submitSearch}>Update results</button>
           </div>

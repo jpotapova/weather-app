@@ -17,16 +17,16 @@ class App extends Component {
           <header className="header">
             <Link to="/" title="My location" className="logo">Weather app</Link>
             <ul className="nav">
-              <li className="nav__button">
+              <li className="nav-button">
                 <Link to="/favourites" title="My favourite cities"><i className="fas fa-heart"></i></Link>
               </li>
-              <li className="nav__button">
+              <li className="nav-button">
                 <Link to="/" title="My location"><i className="fas fa-crosshairs"></i></Link>
               </li>
-              <li className="nav__button">
+              <li className="nav-button">
                 <Link to="/countries" title="Countries"><i className="fas fa-globe-africa"></i></Link>
               </li>
-              <li className="nav__button">
+              <li className="nav-button">
                 <Link to="/search" title="Search"><i className="fas fa-search"></i></Link>
               </li>
             </ul>

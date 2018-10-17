@@ -11,16 +11,18 @@ $color-active: #aaa;
 $color-highlight: #ddd;
 
 body {
-  font-family: Arial,sans-serif;
-  margin: 0;
+  font-family: Arial, sans-serif;
   font-size: $font-base;
+  margin: 0;
 }
 
 p {
   font-size: $font-main;
 }
 
-body, ::before, ::after {
+body,
+::before,
+::after {
   color: $color-base;
 }
 
@@ -35,13 +37,13 @@ a {
 
 ul {
   list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 h1 {
-  margin: 0;
   font-weight: normal;
+  margin: 0;
 }
 
 .h1 {
@@ -54,9 +56,9 @@ h1 {
 }
 
 .logo {
+  display: block;
   font-size: 2em;
   text-align: center;
-  display: block;
   text-decoration: none;
 }
 
@@ -66,20 +68,21 @@ h1 {
 }
 
 .nav {
-  padding: $spacing 0 0;
   display: flex;
   justify-content: space-between;
+  padding: $spacing 0 0;
 
-  &__button {
-    width: $button-size;
-    height: $button-size;
-    background: $color-invert;
-    text-align: center;
-    display: flex;
+  &-button {
     align-items: center;
+    background: $color-invert;
+    display: flex;
+    height: $button-size;
     justify-content: center;
+    text-align: center;
+    width: $button-size;
 
-    a, button {
+    a,
+    button {
       font-size: 20px;
     }
 
@@ -89,32 +92,34 @@ h1 {
 .search {
 
   input {
-    font-size: $font-main;
-    width: 100%;
     border: 1px solid $color-base;
-    padding: $spacing-small;
     box-sizing: border-box;
+    font-size: $font-main;
     margin-top: $spacing;
+    padding: $spacing-small;
+    width: 100%;
   }
 }
 
 .button {
-  font-size: $font-main;
-  width: 100%;
-  border: 1px solid $color-base;
-  padding: $spacing-small;
-  box-sizing: border-box;
-  margin-top: $spacing-large;
   background: $color-brand;
+  border: 1px solid $color-base;
+  box-sizing: border-box;
+  font-size: $font-main;
+  margin-top: $spacing-large;
+  padding: $spacing-small;
+  width: 100%;
+
 }
 
 .row {
-  font-size: $font-main;
+  border-bottom: 1px solid $color-base;
   display: flex;
+  font-size: $font-main;
   justify-content: space-between;
   margin-bottom: $spacing;
   padding-bottom: $spacing-small;
-  border-bottom: 1px solid $color-base;
+
 
   &:last-child {
     border-bottom: 0;
@@ -133,6 +138,7 @@ h1 {
 .datetime {
   margin: 0;
 }
+
 .temperature {
   font-size: 40px;
   margin-bottom: 0;

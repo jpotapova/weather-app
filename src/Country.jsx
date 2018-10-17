@@ -14,7 +14,7 @@ class Country extends Component {
 
   componentDidMount() {
 
-    fetch("http://localhost:3001/cities?country=" + this.props.country.Code + "&_limit=20")
+    fetch("http://localhost:3001/cities?country=" + this.props.code + "&_limit=20")
       .then(response => response.json())
       .then(data => this.setState({ cities: data }));
 
@@ -25,7 +25,7 @@ class Country extends Component {
     return (
       <div>
         <div className="h1">
-          <h1>{this.props.country.Name} {this.props.country.Code}</h1>
+          <h1>{this.props.country.Name}</h1>
         </div>
         <ItemsList items={this.state.cities} link="/city/" actions="weather" />
       </div>

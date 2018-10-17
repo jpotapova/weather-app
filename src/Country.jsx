@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { ItemsList } from "./ItemsList";
+import { Map } from "./Map";
 
 class Country extends Component {
 
@@ -53,6 +54,7 @@ class Country extends Component {
           <h1>{this.props.country.Name}</h1>
         </div>
         <ItemsList items={this.state.cities} link="/city/" actions="weather" />
+        <Map items={this.state.cities} />
       </div>
     );
 

@@ -171,6 +171,48 @@ button {
   clear: both;
 }
 
+
+@media (max-width: 699px) {
+
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .label {
+    width: auto;
+    padding: 20px 30px;
+    background: #e5e5e5;
+    cursor: pointer;
+  }
+
+  .label:active {
+    background: $color-brand;
+  }
+
+  .input:focus + .label {
+    z-index: 1;
+  }
+
+  .input:checked + .label {
+    background: $color-brand;
+  }
+
+  .panel {
+    display: none;
+    background: #fff;
+    order: 99;
+    width: 100%;
+    margin-top: $spacing-large;
+  }
+
+  .input:checked + .label + .panel {
+    display: block;
+  }
+
+}
+
+
 @media (min-width: 500px) {
 
   .header .container {
@@ -201,6 +243,26 @@ button {
       margin-top: $spacing;
     }
   }
+
+  .label {
+    display: none;
+  }
+
+  .tabs {
+    display: flex;
+  }
+
+  .panel {
+    flex: 1;
+  }
+
+  .panel-list {
+    margin-right: $spacing;
+  }
+
+  .panel-right {
+    margin-left: $spacing;
+  }
 }
 
 @media (min-width: 1000px) {
@@ -211,4 +273,9 @@ button {
     max-width: 960px;
   }
 
+}
+
+.input {
+  position: absolute;
+  opacity: 0;
 }

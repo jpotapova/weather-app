@@ -60,9 +60,27 @@ class Country extends Component {
         <div className="h1">
           <h1>{this.props.country.Name}</h1>
         </div>
-        <ItemsList items={this.state.cities} link="/city/" actions="weather" />
-        <Map items={this.state.cities} />
+
+
+
+        <div className="tabs">
+        	<input name="tabs" type="radio" id="tab-1" defaultChecked="checked" className="input"/>
+        	<label htmlFor="tab-1" className="label">List</label>
+        	<div className="panel panel-list">
+            <ItemsList items={this.state.cities} link="/city/" actions="weather" />
+          </div>
+
+        	<input name="tabs" type="radio" id="tab-2" defaultChecked="checked" className="input"/>
+        	<label htmlFor="tab-2" className="label">Map</label>
+        	<div className="panel panel-map">
+            <Map items={this.state.cities} />
+	        </div>
+
+
+        </div>
       </div>
+
+
 
     );
 

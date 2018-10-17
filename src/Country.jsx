@@ -17,7 +17,7 @@ class Country extends Component {
 
   componentDidMount() {
 
-    window.fetch(formatURI(":3001/cities?country=" + this.props.code + "&_limit=2"))
+    window.fetch(formatURI(":3001/cities?country=" + this.props.code + "&_limit=5"))
       .then(response => response.json())
       .then(data => {
 

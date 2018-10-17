@@ -48,8 +48,8 @@ h1 {
 }
 
 button {
-  border: 0;
   background: transparent;
+  border: 0;
 }
 
 .h1 {
@@ -108,9 +108,9 @@ button {
 }
 
 .search-form {
-  max-width: $search-width;
   margin-left: auto;
   margin-right: auto;
+  max-width: $search-width;
 }
 
 .button {
@@ -167,8 +167,8 @@ button {
 }
 
 .map {
-  height: 310px;
   clear: both;
+  height: 310px;
 }
 
 
@@ -180,34 +180,42 @@ button {
   }
 
   .label {
-    width: auto;
-    padding: 20px 30px;
-    background: #e5e5e5;
+    background: $color-highlight;
     cursor: pointer;
+    padding: $spacing;
+    width: auto;
+
+    &:active {
+      background: $color-brand;
+    }
+
   }
 
-  .label:active {
-    background: $color-brand;
+  input {
+
+    &:focus + .label {
+      z-index: 1;
+    }
+
+    &:checked + .label {
+      background: $color-brand;
+    }
+
   }
 
-  .input:focus + .label {
-    z-index: 1;
-  }
-
-  .input:checked + .label {
-    background: $color-brand;
-  }
 
   .panel {
+    background: $color-invert;
     display: none;
-    background: #fff;
+    margin-top: $spacing-large;
     order: 99;
     width: 100%;
-    margin-top: $spacing-large;
   }
 
-  .input:checked + .label + .panel {
-    display: block;
+  .input {
+    &:checked + .label + .panel {
+      display: block;
+    }
   }
 
 }
@@ -215,9 +223,11 @@ button {
 
 @media (min-width: 500px) {
 
-  .header .container {
-    display: flex;
-    justify-content: space-between;
+  .header {
+    .container {
+      display: flex;
+      justify-content: space-between;
+    }
   }
 
   .nav {
@@ -239,7 +249,8 @@ button {
     display: flex;
     max-width: none;
 
-    input, button {
+    input,
+    button {
       margin-top: $spacing;
     }
   }
@@ -276,6 +287,6 @@ button {
 }
 
 .input {
-  position: absolute;
   opacity: 0;
+  position: absolute;
 }

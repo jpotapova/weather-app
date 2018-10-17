@@ -25,6 +25,8 @@
       "max-len": "off",
       "no-param-reassign": "off",
       "object-shorthand": "off",
-      "react/no-string-refs": "off"
+      "react/no-string-refs": "off",
+      "jsx-a11y/label-has-associated-control": "off",
+      "jsx-a11y/label-has-for": "off"
   }
 }

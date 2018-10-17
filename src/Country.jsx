@@ -29,15 +29,19 @@ class Country extends Component {
         const byIDs = "http://api.openweathermap.org/data/2.5/group?id="
                                 + ids.join(",")
                                 + "&APPID=62b8cfcff3ecb643b618d34c4d24a283&units=metric";
-      
+
         return fetch(byIDs)
             .then(response => response.json())
             .then(weatherData => {
-              let cities = data.map((c, index) => {
+
+              const cities = data.map((c, index) => {
+
                 c.temp = weatherData.list[index].main.temp;
                 return c;
+
               });
-              return this.setState({cities: cities});
+              return this.setState({ cities: cities });
+
             });
 
       });
@@ -52,27 +56,19 @@ class Country extends Component {
         <div className="h1">
           <h1>{this.props.country.Name}</h1>
         </div>
-
-
-
         <div className="tabs">
-        	<input name="tabs" type="radio" id="tab-1" defaultChecked="checked" className="input"/>
-        	<label htmlFor="tab-1" className="label">List</label>
-        	<div className="panel panel-list">
+          <input name="tabs" type="radio" id="tab-1" defaultChecked="checked" className="input" />
+          <label htmlFor="tab-1" className="label">List</label>
+          <div className="panel panel-list">
             <ItemsList items={this.state.cities} link="/city/" actions="weather" />
           </div>
-
-        	<input name="tabs" type="radio" id="tab-2" defaultChecked="checked" className="input"/>
-        	<label htmlFor="tab-2" className="label">Map</label>
-        	<div className="panel panel-map">
+          <input name="tabs" type="radio" id="tab-2" defaultChecked="checked" className="input" />
+          <label htmlFor="tab-2" className="label">Map</label>
+          <div className="panel panel-map">
             <Map items={this.state.cities} />
-	        </div>
-
-
+          </div>
         </div>
       </div>
-
-
 
     );
 

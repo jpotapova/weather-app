@@ -27,7 +27,7 @@ Click heart icon to view a list of Favourite cities.
 Click crosshairs icon to view current weather in your location. It takes a couple of seconds for the browser to obtain your location, please be patient. If the message states, that is was not possible to retrieve your location, please make sure you don't block this feature in browser settings.
 
 Click earth icon to view a list of countries.
-Each country in the list is clickable and once a country is selected, you will be provided with a list of 5 cities (and a corresponding map) for that country. The limit of 5 was chosen in order not to exceed the weather API quota.
+Each country in the list is clickable and once a country is selected, you will be provided with a list of 5 cities (and a corresponding map) for that country. The limit of 5 was chosen in order to not exceed the weather API quota very quickly.
 
 Click search icon to proceed to a search page. Your search term will be submitted **only** when you click "Update results" button. Search returns 10  cities that partially match the search term.
 
@@ -37,4 +37,4 @@ The app is using openweathermap API to get weather information and Google Maps t
 
 Favourites are stored in local storage.
 
-Countries and cities are stored in a massive JSON file, which is served using json-server. Json-server is a third-party tools, that creates a fake REST API.
+Countries and cities are stored in a massive JSON file, which is served using json-server. Json-server is a third-party tool, that creates a fake REST API.

@@ -17,7 +17,7 @@
       "react/prefer-stateless-function": "off",
       "react/self-closing-comp": "off",
       "react/prop-types": "off",
-      "class-methods-use-this": "off",
+      
       "one-var": "off",
       "indent": "off",
       "react/jsx-one-expression-per-line": "off",

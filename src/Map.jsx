@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-import { formatTemp } from "./helpers";
+import { generateMarker } from "./helpers";
 
 class Map extends Component {
 
   constructor(props) {
 
     super(props);
-    this.generateMarker = this.generateMarker.bind(this);
     this.addMarker = this.addMarker.bind(this);
     this.initMap = this.initMap.bind(this);
     this.initMarkers = this.initMarkers.bind(this);
@@ -28,27 +27,10 @@ class Map extends Component {
 
   }
 
-  generateMarker(map, index, position, temp) {
-
-    return new window.google.maps.Marker({
-      position: position,
-      map: map,
-      label: formatTemp(temp),
-      icon: {
-        path: "M -2,-2 2,-2 2,2 -2,2 z",
-        strokeColor: "#fff",
-        fillColor: "#fff",
-        fillOpacity: 1,
-        scale: 10
-      }
-    });
-
-  }
-
   addMarker(markers, bounds, item) {
 
     const position = { lat: item.coord.lat, lng: item.coord.lon };
-    const m = this.generateMarker(this.map, item.id, position, item.temp);
+    const m = generateMarker(this.map, item.id, position, item.temp);
     m.metadata = { id: item.id };
     markers.push(m);
 

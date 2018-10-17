@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { formatTemp, formatURI } from "./helpers";
+import { formatTemp, formatURI, formatDate } from "./helpers";
 import "whatwg-fetch";
 
 class City extends Component {
@@ -92,31 +92,6 @@ class City extends Component {
 
   }
 
-  formatDate(date) {
-
-    function getMonth() {
-
-      const months = [
-        "January", "February", "March",
-        "April", "May", "June", "July",
-        "August", "September", "October",
-        "November", "December"
-      ];
-      return months[date.getMonth()];
-
-    }
-
-    const d = date.getDate(),
-          y = date.getFullYear(),
-          h = date.getHours(),
-          m = getMonth(),
-          min = date.getMinutes();
-
-
-    return d + " " + m + " " + y + " " + h + ":" + min;
-
-  }
-
   isFav() {
 
     const i = this.state.favs.findIndex((f) => this.id === f.id + "");
@@ -155,7 +130,7 @@ class City extends Component {
           <h1>{this.state.city.name || "My location"}</h1>
         </div>
         <div className="weather">
-          <p className="datetime">{this.formatDate(new Date())}</p>
+          <p className="datetime">{formatDate(new Date())}</p>
           {this.state.geoMsg && <p>{this.state.geoMsg}</p>}
           {this.state.weather && this.state.weather.main && <p className="temperature">{formatTemp(this.state.weather.main.temp)}</p>}
           {this.state.weather && <p className="description">{this.state.weather.weather[0].main}</p>}

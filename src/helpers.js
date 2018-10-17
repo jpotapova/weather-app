@@ -63,4 +63,8 @@ function generateMarker(map, index, position, temp) {
 
 }
 
-export { formatTemp, formatURI, formatDate, generateMarker };
+function weatherQuery(str) {
+  return "http://api.openweathermap.org/data/2.5/" + str + "&APPID=62b8cfcff3ecb643b618d34c4d24a283&units=metric";
+}
+
+export { formatTemp, formatURI, formatDate, generateMarker, weatherQuery };

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { formatTemp, formatURI, formatDate } from "./helpers";
+import { formatTemp, formatURI, formatDate, weatherQuery } from "./helpers";
 import "whatwg-fetch";
 
 class City extends Component {
@@ -49,11 +49,7 @@ class City extends Component {
       .then(response => response.json())
       .then(data => this.setState({ city: data[0] }));
 
-    const byID = "http://api.openweathermap.org/data/2.5/weather?id="
-                          + id
-                          + "&APPID=62b8cfcff3ecb643b618d34c4d24a283&units=metric";
-
-    window.fetch(byID)
+    window.fetch(weatherQuery("weather?id=" + id))
       .then(response => response.json())
       .then(data => this.setState({ weather: data }));
 
@@ -68,12 +64,8 @@ class City extends Component {
           geoMsg: null
         });
 
-        const byGeo = "http://api.openweathermap.org/data/2.5/weather?lat="
-                              + position.coords.latitude
-                              + "&lon=" + position.coords.longitude
-                              + "&APPID=62b8cfcff3ecb643b618d34c4d24a283&units=metric";
-
-        window.fetch(byGeo)
+        const c = position.coords;
+        window.fetch(weatherQuery("weather?lat=" + c.latitude + "&lon=" + c.longitude))
           .then(response => response.json())
           .then(data => this.setState({ weather: data }));
 

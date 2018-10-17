@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { ItemsList } from "./ItemsList";
 import { Map } from "./Map";
-import { formatURI } from "./helpers";
+import { formatURI, weatherQuery } from "./helpers";
 import "whatwg-fetch";
 
 class Country extends Component {
@@ -28,11 +28,8 @@ class Country extends Component {
       .then(data => {
 
         const ids = data.map((city) => city.id);
-        const byIDs = "http://api.openweathermap.org/data/2.5/group?id="
-                                + ids.join(",")
-                                + "&APPID=62b8cfcff3ecb643b618d34c4d24a283&units=metric";
 
-        return window.fetch(byIDs)
+        return window.fetch(weatherQuery("group?id=" + ids.join(",")))
             .then(response => response.json())
             .then(weatherData => {
 
